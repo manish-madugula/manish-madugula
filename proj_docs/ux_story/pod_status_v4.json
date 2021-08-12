@@ -1,0 +1,130 @@
+{
+ "userId": "manish",
+ "pageNumber": 1,
+ "pageSize": 10,
+ "projectCount": 50,
+ "listProjects": [
+  {
+   "projectDTO": {
+    "projectId": 3234,
+    "name": "multi-container-app",
+    "description": "multi-container app",
+    "createTime": "2021-06-29T00:31:25.805+00:00",
+    "updateTime": "2021-06-29T00:35:12.222+00:00",
+    "containerTerminationTime": null
+   },
+   "targets": [
+    {
+     "comparisonId": "ec546cfd-ecdd-4a58-b510-b254ae69dfa8",
+     "targetName": "compute+cpu+gen",
+     "targetStatus":"RUNNING",
+     "executionTime": 40,
+     "lastJobExecution": 31037,
+     "deployments": [
+      {
+       "deploymentId": "8a068c3a7a3c8bc3017a565f8426007e",
+       "comparisonId": "ec546cfd-ecdd-4a58-b510-b254ae69dfa8",
+       "userId": 12,
+       "containerId": 3253,
+       "tags": [
+        {
+         "tagName": "container-c",
+         "tagDescription": ""
+        }
+       ],
+       "containerCreationDate": "2021-06-29T00:35:12.176+00:00",
+       "compute": "cpu",
+       "cpu": "core",
+       "gen": "gen7",
+       "variant": "i7",
+       "status": "RUNNING",
+       "podIp": "10.133.26.14 ",
+       "podId": "b30294df-1da1-4dac-a904-24d1645f246d",
+       "podName": "2-container-c-7f4d8c84f7-2nf8p",
+       "imageName": "quay.io/vijaysriraman/multi-container:container-g",
+       "executionTime": 40,
+       "containerName": "container-c",
+       "path": null,
+       "lastJobExecution": 31037,
+       "createTime": "2021-06-29T06:06:19.03",
+       "size": "26MB"
+      },
+      {
+       "deploymentId": "8a068c3a7a3c8bc3017a565f8426007e",
+       "comparisonId": "ec546cfd-ecdd-4a58-b510-b254ae69dfa8",
+       "userId": 12,
+       "containerId": 3253,
+       "tags": [
+        {
+         "tagName": "container-c",
+         "tagDescription": ""
+        }
+       ],
+       "containerCreationDate": "2021-06-29T00:35:12.176+00:00",
+       "compute": "cpu",
+       "cpu": "core",
+       "gen": "gen7",
+       "variant": "i3",
+       "status": "RUNNING",
+       "podIp": "10.133.26.14 ",
+       "podId": "b30294df-1da1-4dac-a904-24d1645f246d",
+       "podName": "2-container-c-7f4d8c84f7-2nf8p",
+       "imageName": "quay.io/vijaysriraman/multi-container:container-g",
+       "executionTime": 40,
+       "containerName": "container-c",
+       "path": null,
+       "lastJobExecution": 31037,
+       "createTime": "2021-06-29T06:06:19.03",
+       "size": "26MB"
+      }
+     ]
+    },
+    {
+     "comparisonId": "b1c001e2-b5db-4b52-bcf2-fe32e10c93fd",
+     "targetName": "compute+cpu+gen",
+     "targetStatus":"RUNNING",
+     "executionTime": 40,
+     "lastJobExecution": 31037,
+     "deployments": [
+      {
+       "deploymentId": "8a068c3a7a3c8bc3017a565f8423007d",
+       "comparisonId": "b1c001e2-b5db-4b52-bcf2-fe32e10c93fd",
+       "projectDTO": {
+        "projectId": 3234,
+        "name": "multi-container-app",
+        "description": "multi-container app",
+        "createTime": "2021-06-29T00:31:25.805+00:00",
+        "updateTime": "2021-06-29T00:35:12.222+00:00",
+        "containerTerminationTime": null
+       },
+       "userId": 12,
+       "containerId": 3258,
+       "tags": [
+        {
+         "tagName": "client",
+         "tagDescription": ""
+        }
+       ],
+       "containerCreationDate": "2021-06-29T00:35:12.199+00:00",
+       "compute": "cpu",
+       "cpu": "core",
+       "gen": "gen7",
+       "variant": "i7",
+       "status": "RUNNING",
+       "podIp": "10.133.24.10 ",
+       "podId": "2dd1dd86-1fbe-41d9-ac9a-5d1cbfc57b5d",
+       "podName": "3-client-67564d8c79-ksglc",
+       "imageName": "quay.io/vijaysriraman/multi-container:clientcontainer",
+       "executionTime": 3079,
+       "containerName": "client",
+       "path": null,
+       "lastJobExecution": 31037,
+       "createTime": "2021-06-29T06:56:58.325",
+       "size": "26MB"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

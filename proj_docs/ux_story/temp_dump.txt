@@ -1,0 +1,91 @@
+diff --git a/src/main/java/com/intel/container/service/impl/ContainerServiceImpl.java b/src/main/java/com/intel/container/service/impl/ContainerServiceImpl.java
+index 0e1fce1..b5baab1 100644
+--- a/src/main/java/com/intel/container/service/impl/ContainerServiceImpl.java
++++ b/src/main/java/com/intel/container/service/impl/ContainerServiceImpl.java
+@@ -20,6 +20,7 @@ import java.security.GeneralSecurityException;
+ import java.util.*;
+ import java.util.stream.Collectors;
+ 
++import com.intel.project.exception.BaseException;
+ import org.apache.commons.lang3.StringUtils;
+ import org.slf4j.Logger;
+ import org.slf4j.LoggerFactory;
+@@ -570,12 +571,12 @@ public class ContainerServiceImpl implements ContainerService {
+ 		for(final ContainerConfigRequest containerRequest : containerConfigRequests) {
+ 			try {
+ 				containerResponseDTOList.add(createContainer(containerRequest, authentication));
+-			} catch (final ByocException e) {
++			} catch (final BaseException e) {
+ 				final Set<String> successfulContainers = containerResponseDTOList.stream().map(ContainerResponseDTO::getContainerName).collect(Collectors.toSet());
+ 				final Set<String> failedContainers = containerConfigRequests.stream().map(ContainerConfigRequest::getContainerName).collect(Collectors.toSet());
+ 				failedContainers.removeAll(successfulContainers);
+-				final String displayMessage = String.format("Following containers were not successfully imported : %s", failedContainers.toString());
+-				throw new ByocException(HttpStatus.INTERNAL_SERVER_ERROR.value(), ErrorCode.BY1075,displayMessage,e);
++				final String displayMessage = String.format("Following containers were not successfully imported : %s, failed with following exception : %s", failedContainers.toString(), e.getMessage());
++				throw new ByocException(HttpStatus.INTERNAL_SERVER_ERROR.value(), ErrorCode.BY1075, displayMessage, e.getDetails());
+ 			}
+ 		}
+ 		return containerResponseDTOList;
+@@ -621,7 +622,7 @@ public class ContainerServiceImpl implements ContainerService {
+ 		return configurationResponseDTO;
+ 	}
+ 
+-	private void appendContainerNameWithDefaultTag(ContainerConfigRequest containerRequest){
++	public void appendContainerNameWithDefaultTag(ContainerConfigRequest containerRequest){
+ 		if(containerRequest.getIsInternalRepo()){
+ 			//Logic to append tagName (if not present) so that containerName == imageStreamName.
+ 			String containerName = containerRequest.getContainerName();
+@@ -636,6 +637,27 @@ public class ContainerServiceImpl implements ContainerService {
+ 		}
+ 	}
+ 
++	private String fetchTagNameFromNameAndUrl(ContainerConfigRequest containerRequest) throws ByocException {
++		String containerName = containerRequest.getContainerName();
++		if(containerName.contains(":")){
++			String tagNameFromContainerName = containerName.split(":")[1];
++			String tagNameFromUrl = fetchTagNameFromUrl(containerRequest.getUrl());
++			if(!(tagNameFromUrl.isEmpty() || Objects.isNull(tagNameFromUrl))){
++				if(!tagNameFromUrl.equals(tagNameFromContainerName))
++					throw new ByocException(HttpStatus.BAD_REQUEST.value(),
++										ErrorCode.BY1011, "TagName from url doesn't match tagName from containerName.");
++			}
++			return tagNameFromContainerName;
++		}
++		else{
++			String tagName = fetchTagNameFromUrl(containerRequest.getUrl());
++			if(tagName.isEmpty() || Objects.isNull(tagName)){
++				tagName = "latest";
++			}
++			return tagName;
++		}
++	}
++
+ 	private String fetchTagNameFromUrl(String urlString){
+ 		if(Objects.isNull(urlString) || urlString.isEmpty()) return "";
+ 		String[] paths = urlString.split("/");
+@@ -712,10 +734,11 @@ public class ContainerServiceImpl implements ContainerService {
+ 		Container container = !Objects.isNull(containerObj) ? containerObj : new Container();
+ 		containerRequest.setUserId(userId);
+ 		container.setUserId(userId);
+-		container.setContainerName(containerRequest.getContainerName());
++		container.setContainerName(getContainerNameFromRequest(containerRequest));
+ 		container.setContainerDescription(containerRequest.getContainerDescription());
+ 		container.setContainerType(true);
+ 		container.setCreatedDate(new Date());
++		LOGGER.info(">>>>  Creating Container with name <<<<< {} "  , container.getContainerName());
+ 		LOGGER.info(">>>>  IsInternalRepo <<<<< {}"  , containerRequest.getIsInternalRepo());
+ 		if(containerRequest.getIsInternalRepo()){
+ 			final String userNamespace = ContainerValidationUtil.extractUserNameFromEmail(userEmailId)+"-intel";
+@@ -751,6 +774,12 @@ public class ContainerServiceImpl implements ContainerService {
+ 		return container;
+ 	}
+ 
++	public String getContainerNameFromRequest(ContainerConfigRequest containerRequest) throws ByocException {
++		String plainName = containerRequest.getContainerName().split(":")[0]; // There shouldn't be more than one : in the containerName sent by UI.
++		String tagName = fetchTagNameFromNameAndUrl(containerRequest);
++		return plainName+":"+tagName;
++	}
++
+ 
+ 	private ContainerResponseDTO getConfigurationResponseDTO(ContainerConfigRequest containerRequest, Authentication authentication, Container container) throws ByocException {
+ 		ContainerResponseDTO data;

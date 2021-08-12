@@ -1,0 +1,165 @@
+[
+	{
+		"projectDTO": {
+			"projectId": 32323525,
+			"containerTerminationTime": 0,
+			"createTime": "2021-06-29T06:35:18.373Z",
+			"description": "string",
+			"name": "string",
+			"updateTime": "2021-06-29T06:35:18.374Z"
+		},
+		"comparisonId": "string",
+		"compute": "string",
+		"containerCreationDate": "2021-06-29T06:35:18.374Z",
+		"containerId": 0,
+		"containerName": "string",
+		"cpu": "string",
+		"createTime": "2021-06-29T06:35:18.374Z",
+		"deploymentId": "string",
+		"executionTime": 0,
+		"gen": "string",
+		"imageName": "string",
+		"lastJobExecution": 0,
+		"path": "string",
+		"podId": "string",
+		"podIp": "string",
+		"podName": "string",
+		"status": "string",
+		"tags": [
+			{
+				"tagDescription": "string",
+				"tagName": "string"
+			}
+		],
+		"userId": 1,
+		"variant": "string"
+	}
+]
+
+multicontainer -> group ->time???? (Vijay)
+-> Comparision Id
+new Date()
+
+
+
+/api/v1/pod/{projectId}
+[
+	"core_i7_6th_gen_29_06_2021" : [
+		{
+			"projectDTO": {
+				"projectId": 32323525,
+				"containerTerminationTime": 0,
+				"createTime": "2021-06-29T06:35:18.373Z",
+				"description": "string",
+				"name": "string",
+				"updateTime": "2021-06-29T06:35:18.374Z"
+			},
+			"comparisonId": "string",
+			"compute": "string",
+			"containerCreationDate": "2021-06-29T06:35:18.374Z",
+			"containerId": 0,
+			"containerName": "string",
+			"cpu": "string",
+			"createTime": "2021-06-29T06:35:18.374Z",
+			"deploymentId": "string",
+			"executionTime": 0,
+			"gen": "string",
+			"imageName": "string",
+			"lastJobExecution": 0,
+			"path": "string",
+			"podId": "string",
+			"podIp": "string",
+			"podName": "string",
+			"status": "string",
+			"tags": [
+				{
+					"tagDescription": "string",
+					"tagName": "string"
+				}
+			],
+			"userId": 1,
+			"variant": "string"
+		},
+		{
+			"projectDTO": {
+				"projectId": 32323525,
+				"containerTerminationTime": 0,
+				"createTime": "2021-06-29T06:35:18.373Z",
+				"description": "string",
+				"name": "string",
+				"updateTime": "2021-06-29T06:35:18.374Z"
+			},
+			"comparisonId": "string",
+			"compute": "string",
+			"containerCreationDate": "2021-06-29T06:35:18.374Z",
+			"containerId": 0,
+			"containerName": "string",
+			"cpu": "string",
+			"createTime": "2021-06-29T06:35:18.374Z",
+			"deploymentId": "string",
+			"executionTime": 0,
+			"gen": "string",
+			"imageName": "string",
+			"lastJobExecution": 0,
+			"path": "string",
+			"podId": "string",
+			"podIp": "string",
+			"podName": "string",
+			"status": "string",
+			"tags": [
+				{
+					"tagDescription": "string",
+					"tagName": "string"
+				}
+			],
+			"userId": 1,
+			"variant": "string"
+		},
+		{
+			"projectDTO": {
+				"projectId": 32323525,
+				"containerTerminationTime": 0,
+				"createTime": "2021-06-29T06:35:18.373Z",
+				"description": "string",
+				"name": "string",
+				"updateTime": "2021-06-29T06:35:18.374Z"
+			},
+			"comparisonId": "string",
+			"compute": "string",
+			"containerCreationDate": "2021-06-29T06:35:18.374Z",
+			"containerId": 0,
+			"containerName": "string",
+			"cpu": "string",
+			"createTime": "2021-06-29T06:35:18.374Z",
+			"deploymentId": "string",
+			"executionTime": 0,
+			"gen": "string",
+			"imageName": "string",
+			"lastJobExecution": 0,
+			"path": "string",
+			"podId": "string",
+			"podIp": "string",
+			"podName": "string",
+			"status": "string",
+			"tags": [
+				{
+					"tagDescription": "string",
+					"tagName": "string"
+				}
+			],
+			"userId": 1,
+			"variant": "string"
+		}
+	],
+	"core_i5_5th_gen_29_06_2021" : [
+		{
+
+		},
+		{
+
+		},
+		{
+
+		}
+	]
+]

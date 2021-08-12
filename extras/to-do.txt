@@ -1,0 +1,12 @@
+- devcloud migrate
+	- Reapply the changes to devcloud-r2-dev (Dev scripts to r2-dev)
+	- Dev scripts to r2-qa
+	- QA scripts to devcloud-dev
+	- Integrate with jenkins pipeline
+	- Review the changes
+
+- Clone the appropriate branch[]
+- Establish local port forwarding
+- Take backup with custom
+- Configure script
+- Run script.

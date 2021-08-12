@@ -1,0 +1,98 @@
+{
+    "userId": 22,
+    "pageNumber": null,
+    "pageSize": null,
+    "projectCount": 1,
+    "listProjects": [
+        {
+            "projectDTO": {
+                "projectId": 5699,
+                "name": "demoprojectfirst",
+                "description": "firstproject",
+                "createTime": "2021-07-21T08:34:27.058+00:00",
+                "updateTime": "2021-07-21T08:37:30.757+00:00",
+                "containerTerminationTime": null,
+				"assignedContainers":[224, 325,353]
+            },
+            "targets": [
+                {
+                    "comparisonId": "e1e768d0-c1a2-42a2-9491-84f7b5dadb73",
+                    "targetName": "core-i5 gen8",
+                    "targetStatus": "ADDED",
+                    "executionTime": 69,
+                    "lastJobExecution": 77278,
+                    "createTime": "2021-07-22T04:29:06.348",
+                    "manuallyStopped": false,
+                    "deployments": [
+                        {
+                            "deploymentId": "8a068d9a7ac94007017ac9685e0f000f",
+                            "userId": 22,
+                            "containerId": 5703,
+                            "tags": null,
+                            "containerCreationDate": "2021-07-21T08:36:44.189+00:00",
+                            "compute": "cpu",
+                            "cpu": "core",
+                            "gen": "gen8",
+                            "variant": "i5",
+                            "status": "ERROR",
+                            "podIp": "10.135.38.11 ",
+                            "podId": "523ed6dc-d1eb-4c69-897f-c65e51469e9d",
+                            "podName": "2-secondcontainer-58d7d7d474-lc8vw",
+                            "imageName": "docker.io/tarun142258/private:latest",
+                            "executionTime": 0,
+                            "containerName": "secondcontainer",
+                            "path": null,
+                            "lastJobExecution": 77278,
+                            "createTime": "2021-07-22T05:10:13.174",
+                            "manuallyStopped": false
+                        },
+                        {
+                            "deploymentId": "8a068d9a7ac94007017ac9685e0c000e",
+                            "userId": 22,
+                            "containerId": 5700,
+                            "tags": null,
+                            "containerCreationDate": "2021-07-21T08:35:02.866+00:00",
+                            "compute": "cpu",
+                            "cpu": "core",
+                            "gen": "gen8",
+                            "variant": "i5",
+                            "status": "ADDED",
+                            "podIp": "10.135.38.10 ",
+                            "podId": "4242c62a-ff08-4462-84ec-9f753cd5c5cd",
+                            "podName": "1-firstdemocontainer-c877bc49c-bj5tp",
+                            "imageName": "docker.io/rupak91/openshift:script",
+                            "executionTime": 69,
+                            "containerName": "firstdemocontainer",
+                            "path": null,
+                            "lastJobExecution": 77278,
+                            "createTime": "2021-07-22T04:29:06.348",
+                            "manuallyStopped": false
+                        },
+                        {
+                            "deploymentId": "8a068d9a7ac94007017ac9685e07000d",
+                            "userId": 22,
+                            "containerId": 5706,
+                            "tags": null,
+                            "containerCreationDate": "2021-07-21T08:37:30.732+00:00",
+                            "compute": "cpu",
+                            "cpu": "core",
+                            "gen": "gen8",
+                            "variant": "i5",
+                            "status": "ADDED",
+                            "podIp": "10.135.38.9 ",
+                            "podId": "08b3405e-e6c4-44ca-913d-45de6add23ff",
+                            "podName": "0-thirdcontainer-5c8d59c464-sp7gc",
+                            "imageName": "docker.io/rupak91/openshift:script",
+                            "executionTime": 69,
+                            "containerName": "thirdcontainer",
+                            "path": null,
+                            "lastJobExecution": 77278,
+                            "createTime": "2021-07-22T04:29:07.359",
+                            "manuallyStopped": false
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
